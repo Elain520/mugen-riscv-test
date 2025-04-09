@@ -1,0 +1,14 @@
+*.pyc
+/testcases/
+/doc/
+/libs/
+mugen.sh
+qemu_ctl.sh
+runoet.sh
+/suite2cases/
+README.en.md
+/License/
+/combination/
+combination.sh
+check_casename.py
+dep_install.sh
