@@ -1,0 +1,111 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 14:09:20 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL gcc-c++
++ pkgs=gcc-c++
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs gcc-c++ --node 1 --tempfile ''
+Thu Apr 10 14:10:28 2025 - INFO  - pkgs:(gcc-c++) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ cat
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 14:10:32 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 14:10:34 2025 - INFO  - Start testing...
++ rpm -qa
++ grep gcc-c++
+gcc-c++-12.3.1-81.oe2503.riscv64
++ CHECK_RESULT 0 0 0 'Return value error'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Return value error'
++ exit_mode=0
++ '[' -z '0 0 0 Return value error' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ cd /tmp
++ g++ helloworld.cpp
++ test -f /tmp/a.out
++ CHECK_RESULT 0 0 0 'compile helloworld.cpp fail'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='compile helloworld.cpp fail'
++ exit_mode=0
++ '[' -z '0 0 0 compile helloworld.cpp fail' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ ./a.out
++ grep 'hello, world' /tmp/test
+hello, world
++ CHECK_RESULT 0 0 0 'compile a.out error'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='compile a.out error'
++ exit_mode=0
++ '[' -z '0 0 0 compile a.out error' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ CASE_RESULT 0
++ case_re=0
++ test -z ''
++ test 0 -eq 0
++ LOG_INFO 'succeed to execute the case.'
++ message='succeed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'succeed to execute the case.'
+Thu Apr 10 14:11:21 2025 - INFO  - succeed to execute the case.
++ exec_result=
++ exit 0
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Thu Apr 10 14:11:23 2025 - INFO  - start environment cleanup.
++ rm -rf /tmp/test /tmp/helloworld.cpp /tmp/a.out
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 14:11:26 2025 - WARN  - no thing to do.
++ return 0
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Thu Apr 10 14:11:29 2025 - INFO  - Finish environment cleanup!
