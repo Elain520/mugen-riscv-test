@@ -1,0 +1,110 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start to prepare the test environment.'
++ message='Start to prepare the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to prepare the test environment.'
+Wed Apr  9 17:32:03 2025 - INFO  - Start to prepare the test environment.
++ DNF_INSTALL python3-devel
++ pkgs=python3-devel
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs python3-devel --node 1 --tempfile ''
+Wed Apr  9 17:33:10 2025 - INFO  - pkgs:(python3-devel) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ LOG_INFO 'End to prepare the test environment.'
++ message='End to prepare the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to prepare the test environment.'
+Wed Apr  9 17:33:13 2025 - INFO  - End to prepare the test environment.
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ python3-config
++ grep Usage
+Usage: /usr/bin/python3.11-riscv64-config --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--abiflags|--configdir|--embed
++ CHECK_RESULT 0 0 0 'python3-config command execution failure'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='python3-config command execution failure'
++ exit_mode=0
++ '[' -z '0 0 0 python3-config command execution failure' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ python3-config --includes
++ grep /usr/include/python3
+-I/usr/include/python3.11 -I/usr/include/python3.11
++ CHECK_RESULT 0 0 0 'header file location display failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='header file location display failed'
++ exit_mode=0
++ '[' -z '0 0 0 header file location display failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ python3-config --ldflags
++ grep -E '/usr/lib64|/usr/lib'
+ -L/usr/lib64  -ldl  -lm 
++ CHECK_RESULT 0 0 0 'python parameter display failure'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='python parameter display failure'
++ exit_mode=0
++ '[' -z '0 0 0 python parameter display failure' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ python3-config --libs
++ grep ldl
+ -ldl  -lm 
++ CHECK_RESULT 0 0 0 'library file list fails to be displayed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='library file list fails to be displayed'
++ exit_mode=0
++ '[' -z '0 0 0 library file list fails to be displayed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ CASE_RESULT 0
++ case_re=0
++ test -z ''
++ test 0 -eq 0
++ LOG_INFO 'succeed to execute the case.'
++ message='succeed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'succeed to execute the case.'
+Wed Apr  9 17:33:23 2025 - INFO  - succeed to execute the case.
++ exec_result=
++ exit 0
++ post_test
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Wed Apr  9 17:33:26 2025 - WARN  - no thing to do.
++ return 0
