@@ -1,0 +1,100 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 14:31:48 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL gcc-c++
++ pkgs=gcc-c++
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs gcc-c++ --node 1 --tempfile ''
+Thu Apr 10 14:32:56 2025 - INFO  - pkgs:(gcc-c++) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 14:32:59 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 14:33:02 2025 - INFO  - Start testing...
++ cat
++ CHECK_RESULT 0 0 0 'Error, fail to create teststl.cpp'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Error, fail to create teststl.cpp'
++ exit_mode=0
++ '[' -z '0 0 0 Error, fail to create teststl.cpp' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ g++ teststl.cpp -o teststl
++ CHECK_RESULT 0 0 0 'Error, fail to create teststl'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Error, fail to create teststl'
++ exit_mode=0
++ '[' -z '0 0 0 Error, fail to create teststl' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ ./teststl
++ grep 'Hello STL!'
+Hello STL!
++ LOG_INFO 'End teststl!'
++ message='End teststl!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End teststl!'
+Thu Apr 10 14:33:40 2025 - INFO  - End teststl!
++ CASE_RESULT 0
++ case_re=0
++ test -z ''
++ test 0 -eq 0
++ LOG_INFO 'succeed to execute the case.'
++ message='succeed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'succeed to execute the case.'
+Thu Apr 10 14:33:43 2025 - INFO  - succeed to execute the case.
++ exec_result=
++ exit 0
++ post_test
++ LOG_INFO 'start environment!'
++ message='start environment!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment!'
+Thu Apr 10 14:33:46 2025 - INFO  - start environment!
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 14:33:48 2025 - WARN  - no thing to do.
++ return 0
++ rm -rf teststl teststl.cpp
++ LOG_INFO 'end environment!'
++ message='end environment!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'end environment!'
+Thu Apr 10 14:33:51 2025 - INFO  - end environment!
