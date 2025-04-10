@@ -1,0 +1,121 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start to prepare the test environment.'
++ message='Start to prepare the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to prepare the test environment.'
+Thu Apr 10 09:36:55 2025 - INFO  - Start to prepare the test environment.
++ DNF_INSTALL 'gcc openblas openblas-devel'
++ pkgs='gcc openblas openblas-devel'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'gcc openblas openblas-devel' --node 1 --tempfile ''
+Thu Apr 10 09:38:01 2025 - INFO  - pkgs:(gcc openblas openblas-devel) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ LOG_INFO 'End to prepare the test environment.'
++ message='End to prepare the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to prepare the test environment.'
+Thu Apr 10 09:38:05 2025 - INFO  - End to prepare the test environment.
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start to run test.'
++ message='Start to run test.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to run test.'
+Thu Apr 10 09:38:07 2025 - INFO  - Start to run test.
++ test -e sampleblas.c
++ CHECK_RESULT 0 0 0 'sampleblas.c file not found'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='sampleblas.c file not found'
++ exit_mode=0
++ '[' -z '0 0 0 sampleblas.c file not found' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ gcc -o sampleblas sampleblas.c -lopenblas
++ CHECK_RESULT 0 0 0 'Compilation failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Compilation failed'
++ exit_mode=0
++ '[' -z '0 0 0 Compilation failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ test -e sampleblas
++ CHECK_RESULT 0 0 0 'sampleblas file not found'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='sampleblas file not found'
++ exit_mode=0
++ '[' -z '0 0 0 sampleblas file not found' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ ./sampleblas
++ grep '\-4.950000 10.050000 -0.950000 10.050000 -9.950000 4.050000 7.050000 4.050000 5.050000'
+-4.950000 10.050000 -0.950000 10.050000 -9.950000 4.050000 7.050000 4.050000 5.050000 
++ CHECK_RESULT 0 0 0 'Script returned information error'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Script returned information error'
++ exit_mode=0
++ '[' -z '0 0 0 Script returned information error' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ LOG_INFO 'End to run test.'
++ message='End to run test.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to run test.'
+Thu Apr 10 09:38:22 2025 - INFO  - End to run test.
++ CASE_RESULT 0
++ case_re=0
++ test -z ''
++ test 0 -eq 0
++ LOG_INFO 'succeed to execute the case.'
++ message='succeed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'succeed to execute the case.'
+Thu Apr 10 09:38:25 2025 - INFO  - succeed to execute the case.
++ exec_result=
++ exit 0
++ post_test
++ LOG_INFO 'Start to restore the test environment.'
++ message='Start to restore the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to restore the test environment.'
+Thu Apr 10 09:38:27 2025 - INFO  - Start to restore the test environment.
++ rm -rf sampleblas
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 09:38:30 2025 - WARN  - no thing to do.
++ return 0
++ LOG_INFO 'End to restore the test environment.'
++ message='End to restore the test environment.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to restore the test environment.'
+Thu Apr 10 09:38:32 2025 - INFO  - End to restore the test environment.
