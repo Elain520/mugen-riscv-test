@@ -1,0 +1,55 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 16:17:06 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL 'java-11-openjdk*'
++ pkgs='java-11-openjdk*'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'java-11-openjdk*' --node 1 --tempfile ''
++ tmpfile2=/tmp/tmp509azg88
++ '[' -z '' ']'
++ tmpfile=/tmp/tmp509azg88
++ cp ../common/Hello.java .
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 16:46:38 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 16:46:41 2025 - INFO  - Start testing...
++ jdb -help
++ grep -i 'jdb <选项>\|<options>'
+Usage: jdb <options> <class> <arguments>
++ CHECK_RESULT 0 0 0 'jdb -help failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='jdb -help failed'
++ exit_mode=0
++ '[' -z '0 0 0 jdb -help failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ javac Hello.java
+Thu Apr 10 16:46:53 2025 - ERROR - Timeout : Command 'bash -x oe_test_openjdk11_jdb_jdeps.sh' timed out after 1799.9992727989993 seconds

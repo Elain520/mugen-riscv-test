@@ -1,0 +1,336 @@
++ source ../common/common_lib.sh
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
++++ python3 --version
+Python 3.11.11
++++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environmental preparation.'
++ message='Start environmental preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environmental preparation.'
+Fri Apr 11 13:50:28 2025 - INFO  - Start environmental preparation.
++ DNF_INSTALL 'hadoop-yarn java-1.8.0-openjdk hadoop-hdfs'
++ pkgs='hadoop-yarn java-1.8.0-openjdk hadoop-hdfs'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'hadoop-yarn java-1.8.0-openjdk hadoop-hdfs' --node 1 --tempfile ''
++ tmpfile2='Last metadata expiration check: 1:45:27 ago on Fri 11 Apr 2025 12:09:01 PM CST.
+No match for argument: hadoop-yarn
+No match for argument: hadoop-hdfs
+Error: Unable to find a match: hadoop-yarn hadoop-hdfs'
++ '[' -z '' ']'
++ tmpfile='Last metadata expiration check: 1:45:27 ago on Fri 11 Apr 2025 12:09:01 PM CST.
+No match for argument: hadoop-yarn
+No match for argument: hadoop-hdfs
+Error: Unable to find a match: hadoop-yarn hadoop-hdfs'
++ echo 'export JAVA_HOME=/usr/lib/jvm/jre'
++ sed -i '/Group=hadoop/a SuccessExitStatus=143' /usr/lib/systemd/system/hadoop-proxyserver.service
+sed: can't read /usr/lib/systemd/system/hadoop-proxyserver.service: No such file or directory
++ systemctl daemon-reload
++ cp -raf /etc/hadoop/yarn-site.xml /tmp
+cp: cannot stat '/etc/hadoop/yarn-site.xml': No such file or directory
++ sed -i '/<value>mapreduce_shuffle<\/value>/a<\/property>\n<property>\n<name>yarn.web-proxy.address<\/name>\n<value>10.0.2.15<\/value>' /etc/hadoop/yarn-site.xml
+sed: can't read /etc/hadoop/yarn-site.xml: No such file or directory
++ expect
+spawn sudo -u hdfs hdfs namenode -format
+sudo: unknown user hdfs
+sudo: error initializing audit plugin sudoers_audit
+expect: spawn id exp4 not open
+    while executing
+"expect eof"
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Fri Apr 11 13:55:32 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Fri Apr 11 13:55:35 2025 - INFO  - Start testing...
++ test_execution hadoop-proxyserver.service
++ service=hadoop-proxyserver.service
+++ date '+%Y-%m-%d %T'
++ log_time='2025-04-11 13:55:35'
++ test_restart hadoop-proxyserver.service
++ service=hadoop-proxyserver.service
++ systemctl restart hadoop-proxyserver.service
+Failed to restart hadoop-proxyserver.service: Unit hadoop-proxyserver.service not found.
++ CHECK_RESULT 5 0 0 'hadoop-proxyserver.service restart failed'
++ actual_result=5
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service restart failed'
++ exit_mode=0
++ '[' -z '5 0 0 hadoop-proxyserver.service restart failed' ']'
++ '[' 0 -eq 0 ']'
++ test 5x '!=' 0x
++ test -n 'hadoop-proxyserver.service restart failed'
++ LOG_ERROR 'hadoop-proxyserver.service restart failed'
++ message='hadoop-proxyserver.service restart failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service restart failed'
+Fri Apr 11 13:55:38 2025 - ERROR - hadoop-proxyserver.service restart failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 34'
++ message='../common/common_lib.sh line 34'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 34'
+Fri Apr 11 13:55:41 2025 - ERROR - ../common/common_lib.sh line 34
++ '[' 0 -eq 1 ']'
++ return 0
++ SLEEP_WAIT 5
++ wait_time=5
++ cmd=
++ mode=1
++ python3 /root/pros/github/test/mugen/libs/locallibs/sleep_wait.py --time 5 --cmd '' --mode 1
++ systemctl status hadoop-proxyserver.service
++ grep 'Active: active'
+Unit hadoop-proxyserver.service could not be found.
++ CHECK_RESULT 1 0 0 'hadoop-proxyserver.service restart failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service restart failed'
++ exit_mode=0
++ '[' -z '1 0 0 hadoop-proxyserver.service restart failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'hadoop-proxyserver.service restart failed'
++ LOG_ERROR 'hadoop-proxyserver.service restart failed'
++ message='hadoop-proxyserver.service restart failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service restart failed'
+Fri Apr 11 13:55:52 2025 - ERROR - hadoop-proxyserver.service restart failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 37'
++ message='../common/common_lib.sh line 37'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 37'
+Fri Apr 11 13:55:55 2025 - ERROR - ../common/common_lib.sh line 37
++ '[' 0 -eq 1 ']'
++ return 0
++ systemctl stop hadoop-proxyserver.service
+Failed to stop hadoop-proxyserver.service: Unit hadoop-proxyserver.service not loaded.
++ CHECK_RESULT 5 0 0 'hadoop-proxyserver.service stop failed'
++ actual_result=5
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service stop failed'
++ exit_mode=0
++ '[' -z '5 0 0 hadoop-proxyserver.service stop failed' ']'
++ '[' 0 -eq 0 ']'
++ test 5x '!=' 0x
++ test -n 'hadoop-proxyserver.service stop failed'
++ LOG_ERROR 'hadoop-proxyserver.service stop failed'
++ message='hadoop-proxyserver.service stop failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service stop failed'
+Fri Apr 11 13:55:58 2025 - ERROR - hadoop-proxyserver.service stop failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 39'
++ message='../common/common_lib.sh line 39'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 39'
+Fri Apr 11 13:56:01 2025 - ERROR - ../common/common_lib.sh line 39
++ '[' 0 -eq 1 ']'
++ return 0
++ SLEEP_WAIT 5
++ wait_time=5
++ cmd=
++ mode=1
++ python3 /root/pros/github/test/mugen/libs/locallibs/sleep_wait.py --time 5 --cmd '' --mode 1
++ systemctl status hadoop-proxyserver.service
++ grep 'Active: inactive'
+Unit hadoop-proxyserver.service could not be found.
++ CHECK_RESULT 1 0 0 'hadoop-proxyserver.service stop failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service stop failed'
++ exit_mode=0
++ '[' -z '1 0 0 hadoop-proxyserver.service stop failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'hadoop-proxyserver.service stop failed'
++ LOG_ERROR 'hadoop-proxyserver.service stop failed'
++ message='hadoop-proxyserver.service stop failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service stop failed'
+Fri Apr 11 13:56:12 2025 - ERROR - hadoop-proxyserver.service stop failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 42'
++ message='../common/common_lib.sh line 42'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 42'
+Fri Apr 11 13:56:15 2025 - ERROR - ../common/common_lib.sh line 42
++ '[' 0 -eq 1 ']'
++ return 0
++ systemctl start hadoop-proxyserver.service
+Failed to start hadoop-proxyserver.service: Unit hadoop-proxyserver.service not found.
++ CHECK_RESULT 5 0 0 'hadoop-proxyserver.service start failed'
++ actual_result=5
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service start failed'
++ exit_mode=0
++ '[' -z '5 0 0 hadoop-proxyserver.service start failed' ']'
++ '[' 0 -eq 0 ']'
++ test 5x '!=' 0x
++ test -n 'hadoop-proxyserver.service start failed'
++ LOG_ERROR 'hadoop-proxyserver.service start failed'
++ message='hadoop-proxyserver.service start failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service start failed'
+Fri Apr 11 13:56:18 2025 - ERROR - hadoop-proxyserver.service start failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 44'
++ message='../common/common_lib.sh line 44'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 44'
+Fri Apr 11 13:56:21 2025 - ERROR - ../common/common_lib.sh line 44
++ '[' 0 -eq 1 ']'
++ return 0
++ SLEEP_WAIT 5
++ wait_time=5
++ cmd=
++ mode=1
++ python3 /root/pros/github/test/mugen/libs/locallibs/sleep_wait.py --time 5 --cmd '' --mode 1
++ systemctl status hadoop-proxyserver.service
++ grep 'Active: active'
+Unit hadoop-proxyserver.service could not be found.
++ CHECK_RESULT 1 0 0 'hadoop-proxyserver.service start failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='hadoop-proxyserver.service start failed'
++ exit_mode=0
++ '[' -z '1 0 0 hadoop-proxyserver.service start failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'hadoop-proxyserver.service start failed'
++ LOG_ERROR 'hadoop-proxyserver.service start failed'
++ message='hadoop-proxyserver.service start failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'hadoop-proxyserver.service start failed'
+Fri Apr 11 13:56:32 2025 - ERROR - hadoop-proxyserver.service start failed
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 47'
++ message='../common/common_lib.sh line 47'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 47'
+Fri Apr 11 13:56:35 2025 - ERROR - ../common/common_lib.sh line 47
++ '[' 0 -eq 1 ']'
++ return 0
++ test_enabled hadoop-proxyserver.service
++ service=hadoop-proxyserver.service
+++ systemctl is-enabled hadoop-proxyserver.service
++ state=not-found
++ '[' not-found == enabled ']'
++ '[' not-found == disabled ']'
++ '[' not-found == masked ']'
++ '[' not-found == static ']'
++ LOG_INFO 'Unit is indirect, ignoring.'
++ message='Unit is indirect, ignoring.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Unit is indirect, ignoring.'
+Fri Apr 11 13:56:38 2025 - INFO  - Unit is indirect, ignoring.
++ journalctl --since '2025-04-11 13:55:35' -u hadoop-proxyserver.service
++ grep -i 'fail\|error'
++ grep -v -i 'DEBUG\|INFO\|WARNING'
++ CHECK_RESULT 1 0 1 'There is an error message for the log of hadoop-proxyserver.service'
++ actual_result=1
++ expect_result=0
++ mode=1
++ error_log='There is an error message for the log of hadoop-proxyserver.service'
++ exit_mode=0
++ '[' -z '1 0 1 There is an error message for the log of hadoop-proxyserver.service' ']'
++ '[' 1 -eq 0 ']'
++ test 1x == 0x
++ return 0
++ test_reload hadoop-proxyserver.service
++ service=hadoop-proxyserver.service
++ systemctl start hadoop-proxyserver.service
+Failed to start hadoop-proxyserver.service: Unit hadoop-proxyserver.service not found.
++ systemctl cat hadoop-proxyserver.service
++ grep -q ExecReload
+No files found for hadoop-proxyserver.service.
++ systemctl reload hadoop-proxyserver.service
++ grep 'Job type reload is not applicable'
++ CHECK_RESULT 1 0 0 'Job type reload is not applicable for unit hadoop-proxyserver.service'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Job type reload is not applicable for unit hadoop-proxyserver.service'
++ exit_mode=0
++ '[' -z '1 0 0 Job type reload is not applicable for unit hadoop-proxyserver.service' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Job type reload is not applicable for unit hadoop-proxyserver.service'
++ LOG_ERROR 'Job type reload is not applicable for unit hadoop-proxyserver.service'
++ message='Job type reload is not applicable for unit hadoop-proxyserver.service'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Job type reload is not applicable for unit hadoop-proxyserver.service'
+Fri Apr 11 13:56:43 2025 - ERROR - Job type reload is not applicable for unit hadoop-proxyserver.service
++ (( exec_result++ ))
++ LOG_ERROR '../common/common_lib.sh line 94'
++ message='../common/common_lib.sh line 94'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message '../common/common_lib.sh line 94'
+Fri Apr 11 13:56:46 2025 - ERROR - ../common/common_lib.sh line 94
++ '[' 0 -eq 1 ']'
++ return 0
++ systemctl status hadoop-proxyserver.service
++ grep 'Active: active'
+Unit hadoop-proxyserver.service could not be found.
++ systemctl status hadoop-proxyserver.service
++ grep 'inactive (dead)'
+Unit hadoop-proxyserver.service could not be found.
++ return 1
++ LOG_INFO 'Finish test!'
++ message='Finish test!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish test!'
+Fri Apr 11 13:56:50 2025 - INFO  - Finish test!
++ CASE_RESULT 0
++ case_re=0
++ test -z 7
++ test 7 -gt 0
++ LOG_ERROR 'failed to execute the case.'
++ message='failed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'failed to execute the case.'
+Fri Apr 11 13:56:52 2025 - ERROR - failed to execute the case.
++ exit 7
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Fri Apr 11 13:56:55 2025 - INFO  - start environment cleanup.
++ sed -i '/export JAVA_HOME=\/usr\/lib\/jvm\/jre/d' /usr/libexec/hadoop-layout.sh
++ sed -i /SuccessExitStatus=143/d /usr/lib/systemd/system/hadoop-proxyserver.service
+sed: can't read /usr/lib/systemd/system/hadoop-proxyserver.service: No such file or directory
++ systemctl daemon-reload
++ mv /tmp/yarn-site.xml /etc/hadoop/yarn-site.xml
+mv: cannot stat '/tmp/yarn-site.xml': No such file or directory
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z Last metadata expiration check: 1:45:27 ago on Fri 11 Apr 2025 12:09:01 PM CST.
+No match for argument: hadoop-yarn
+No match for argument: hadoop-hdfs
+Error: Unable to find a match: hadoop-yarn hadoop-hdfs ]]
++ '[' 0 -ne 0 ']'
++ '[' 1 == 0 ']'
++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py remove --node 1 --pkgs '' --tempfile 'Last metadata expiration check: 1:45:27 ago on Fri 11 Apr 2025 12:09:01 PM CST.
+No match for argument: hadoop-yarn
+No match for argument: hadoop-hdfs
+Error: Unable to find a match: hadoop-yarn hadoop-hdfs'
+Traceback (most recent call last):
+  File "/root/pros/github/test/mugen/libs/locallibs/rpm_manage.py", line 192, in <module>
+    exitcode = rpm_remove(args.node, args.pkgs, args.tempfile)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pros/github/test/mugen/libs/locallibs/rpm_manage.py", line 163, in rpm_remove
+    with open(tmpfile, "r") as f:
+         ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Last metadata expiration check: 1:45:27 ago on Fri 11 Apr 2025 12:09:01 PM CST.\nNo match for argument: hadoop-yarn\nNo match for argument: hadoop-hdfs\nError: Unable to find a match: hadoop-yarn hadoop-hdfs'
++ '[' 0 -ne 0 ']'
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Fri Apr 11 13:57:51 2025 - INFO  - Finish environment cleanup!

@@ -1,0 +1,9 @@
+2025-04-09T08:37:50.789176Z 0 [System] [MY-013169] [Server] /usr/libexec/mysqld (mysqld 8.0.41) initializing of server in progress as process 33731
+2025-04-09T08:37:52.154665Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-09T08:38:05.062950Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-04-09T08:39:11.087695Z 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.41).
+2025-04-09T08:39:11.096786Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2025-04-09T08:39:11.225388Z 6 [ERROR] [MY-000061] [Server] 1053  Server shutdown in progress.
+2025-04-09T08:39:11.288308Z 0 [ERROR] [MY-013236] [Server] The designated data directory /var/lib/mysql/ is unusable. You can remove all files that the server added to it.
+2025-04-09T08:39:11.290387Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-09T08:39:15.285102Z 0 [System] [MY-010910] [Server] /usr/libexec/mysqld: Shutdown complete (mysqld 8.0.41)  Source distribution.

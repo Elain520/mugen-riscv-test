@@ -1,0 +1,289 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 16:55:01 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL 'java-11-openjdk*'
++ pkgs='java-11-openjdk*'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'java-11-openjdk*' --node 1 --tempfile ''
+Thu Apr 10 16:56:12 2025 - INFO  - pkgs:(java-11-openjdk*) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ cp ../common/Hello.java .
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 16:56:16 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 16:56:19 2025 - INFO  - Start testing...
++ javac Hello.java
++ pack200 -help
+oe_test_openjdk11_pack200.sh: line 32: pack200: command not found
++ grep -iE '用法:|Usage'
++ CHECK_RESULT 1 0 0 'pack200  -help failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='pack200  -help failed'
++ exit_mode=0
++ '[' -z '1 0 0 pack200  -help failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'pack200  -help failed'
++ LOG_ERROR 'pack200  -help failed'
++ message='pack200  -help failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'pack200  -help failed'
+Thu Apr 10 16:57:14 2025 - ERROR - pack200  -help failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 33'
++ message='oe_test_openjdk11_pack200.sh line 33'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 33'
+Thu Apr 10 16:57:17 2025 - ERROR - oe_test_openjdk11_pack200.sh line 33
++ '[' 0 -eq 1 ']'
++ return 0
++ pack200 --version
+oe_test_openjdk11_pack200.sh: line 34: pack200: command not found
++ grep '[0-9]'
++ CHECK_RESULT 1 0 0 'pack200 --version failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='pack200 --version failed'
++ exit_mode=0
++ '[' -z '1 0 0 pack200 --version failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'pack200 --version failed'
++ LOG_ERROR 'pack200 --version failed'
++ message='pack200 --version failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'pack200 --version failed'
+Thu Apr 10 16:57:20 2025 - ERROR - pack200 --version failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 35'
++ message='oe_test_openjdk11_pack200.sh line 35'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 35'
+Thu Apr 10 16:57:23 2025 - ERROR - oe_test_openjdk11_pack200.sh line 35
++ '[' 0 -eq 1 ']'
++ return 0
++ jar cvf Hello.jar Hello.class
+added manifest
+adding: Hello.class(in = 416) (out= 286)(deflated 31%)
++ CHECK_RESULT 0 0 0 'jar cvf failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='jar cvf failed'
++ exit_mode=0
++ '[' -z '0 0 0 jar cvf failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ find Hello.jar
+Hello.jar
++ CHECK_RESULT 0 0 0 'not find Hello.jar'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='not find Hello.jar'
++ exit_mode=0
++ '[' -z '0 0 0 not find Hello.jar' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ pack200 Hello.jar.pack.gz Hello.jar
+oe_test_openjdk11_pack200.sh: line 40: pack200: command not found
++ CHECK_RESULT 127 0 0 'pack200 Hello.jar.pack.gz failed'
++ actual_result=127
++ expect_result=0
++ mode=0
++ error_log='pack200 Hello.jar.pack.gz failed'
++ exit_mode=0
++ '[' -z '127 0 0 pack200 Hello.jar.pack.gz failed' ']'
++ '[' 0 -eq 0 ']'
++ test 127x '!=' 0x
++ test -n 'pack200 Hello.jar.pack.gz failed'
++ LOG_ERROR 'pack200 Hello.jar.pack.gz failed'
++ message='pack200 Hello.jar.pack.gz failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'pack200 Hello.jar.pack.gz failed'
+Thu Apr 10 16:57:45 2025 - ERROR - pack200 Hello.jar.pack.gz failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 41'
++ message='oe_test_openjdk11_pack200.sh line 41'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 41'
+Thu Apr 10 16:57:48 2025 - ERROR - oe_test_openjdk11_pack200.sh line 41
++ '[' 0 -eq 1 ']'
++ return 0
++ find Hello.jar.pack.gz
+find: ‘Hello.jar.pack.gz’: No such file or directory
++ CHECK_RESULT 1 0 0 'not find Hello.jar.pack.gz'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='not find Hello.jar.pack.gz'
++ exit_mode=0
++ '[' -z '1 0 0 not find Hello.jar.pack.gz' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'not find Hello.jar.pack.gz'
++ LOG_ERROR 'not find Hello.jar.pack.gz'
++ message='not find Hello.jar.pack.gz'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'not find Hello.jar.pack.gz'
+Thu Apr 10 16:57:51 2025 - ERROR - not find Hello.jar.pack.gz
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 43'
++ message='oe_test_openjdk11_pack200.sh line 43'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 43'
+Thu Apr 10 16:57:53 2025 - ERROR - oe_test_openjdk11_pack200.sh line 43
++ '[' 0 -eq 1 ']'
++ return 0
++ rm -rf Hello.jar
++ unpack200 Hello.jar.pack.gz Hello.jar
+oe_test_openjdk11_pack200.sh: line 45: unpack200: command not found
++ CHECK_RESULT 127 0 0 'unpack200 failed'
++ actual_result=127
++ expect_result=0
++ mode=0
++ error_log='unpack200 failed'
++ exit_mode=0
++ '[' -z '127 0 0 unpack200 failed' ']'
++ '[' 0 -eq 0 ']'
++ test 127x '!=' 0x
++ test -n 'unpack200 failed'
++ LOG_ERROR 'unpack200 failed'
++ message='unpack200 failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'unpack200 failed'
+Thu Apr 10 16:57:56 2025 - ERROR - unpack200 failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 46'
++ message='oe_test_openjdk11_pack200.sh line 46'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 46'
+Thu Apr 10 16:57:59 2025 - ERROR - oe_test_openjdk11_pack200.sh line 46
++ '[' 0 -eq 1 ']'
++ return 0
++ find Hello.jar
+find: ‘Hello.jar’: No such file or directory
++ CHECK_RESULT 1 0 0 'not find Hello.jar'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='not find Hello.jar'
++ exit_mode=0
++ '[' -z '1 0 0 not find Hello.jar' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'not find Hello.jar'
++ LOG_ERROR 'not find Hello.jar'
++ message='not find Hello.jar'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'not find Hello.jar'
+Thu Apr 10 16:58:01 2025 - ERROR - not find Hello.jar
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 48'
++ message='oe_test_openjdk11_pack200.sh line 48'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 48'
+Thu Apr 10 16:58:04 2025 - ERROR - oe_test_openjdk11_pack200.sh line 48
++ '[' 0 -eq 1 ']'
++ return 0
++ rm -rf Hello.jar.pack.gz
++ pack200 -q Hello.jar.pack.gz Hello.jar
+oe_test_openjdk11_pack200.sh: line 50: pack200: command not found
++ CHECK_RESULT 127 0 0 'pack -q failed'
++ actual_result=127
++ expect_result=0
++ mode=0
++ error_log='pack -q failed'
++ exit_mode=0
++ '[' -z '127 0 0 pack -q failed' ']'
++ '[' 0 -eq 0 ']'
++ test 127x '!=' 0x
++ test -n 'pack -q failed'
++ LOG_ERROR 'pack -q failed'
++ message='pack -q failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'pack -q failed'
+Thu Apr 10 16:58:07 2025 - ERROR - pack -q failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 51'
++ message='oe_test_openjdk11_pack200.sh line 51'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 51'
+Thu Apr 10 16:58:09 2025 - ERROR - oe_test_openjdk11_pack200.sh line 51
++ '[' 0 -eq 1 ']'
++ return 0
++ find Hello.jar.pack.gz
+find: ‘Hello.jar.pack.gz’: No such file or directory
++ CHECK_RESULT 1 0 0 'not find Hello.jar.pack.gz'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='not find Hello.jar.pack.gz'
++ exit_mode=0
++ '[' -z '1 0 0 not find Hello.jar.pack.gz' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'not find Hello.jar.pack.gz'
++ LOG_ERROR 'not find Hello.jar.pack.gz'
++ message='not find Hello.jar.pack.gz'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'not find Hello.jar.pack.gz'
+Thu Apr 10 16:58:12 2025 - ERROR - not find Hello.jar.pack.gz
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_pack200.sh line 53'
++ message='oe_test_openjdk11_pack200.sh line 53'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_pack200.sh line 53'
+Thu Apr 10 16:58:15 2025 - ERROR - oe_test_openjdk11_pack200.sh line 53
++ '[' 0 -eq 1 ']'
++ return 0
++ LOG_INFO 'Finish test!'
++ message='Finish test!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish test!'
+Thu Apr 10 16:58:17 2025 - INFO  - Finish test!
++ CASE_RESULT 0
++ case_re=0
++ test -z 8
++ test 8 -gt 0
++ LOG_ERROR 'failed to execute the case.'
++ message='failed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'failed to execute the case.'
+Thu Apr 10 16:58:20 2025 - ERROR - failed to execute the case.
++ exit 8
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Thu Apr 10 16:58:22 2025 - INFO  - start environment cleanup.
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 16:58:25 2025 - WARN  - no thing to do.
++ return 0
++ rm -rf Hello.class Hello.java
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Thu Apr 10 16:58:27 2025 - INFO  - Finish environment cleanup!

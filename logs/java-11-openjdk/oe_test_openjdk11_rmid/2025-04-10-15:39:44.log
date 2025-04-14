@@ -1,0 +1,153 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 15:40:00 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL java-11-openjdk-devel
++ pkgs=java-11-openjdk-devel
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs java-11-openjdk-devel --node 1 --tempfile ''
+Thu Apr 10 15:41:09 2025 - INFO  - pkgs:(java-11-openjdk-devel) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ cp ../common/Hello.java .
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 15:41:12 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 15:41:15 2025 - INFO  - Start testing...
++ LANG=
++ rmic
+oe_test_openjdk11_rmid.sh: line 31: rmic: command not found
++ grep Usage:
++ CHECK_RESULT 1 0 0 'expect usage, failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='expect usage, failed'
++ exit_mode=0
++ '[' -z '1 0 0 expect usage, failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'expect usage, failed'
++ LOG_ERROR 'expect usage, failed'
++ message='expect usage, failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'expect usage, failed'
+Thu Apr 10 15:41:18 2025 - ERROR - expect usage, failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_rmid.sh line 32'
++ message='oe_test_openjdk11_rmid.sh line 32'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_rmid.sh line 32'
+Thu Apr 10 15:41:20 2025 - ERROR - oe_test_openjdk11_rmid.sh line 32
++ '[' 0 -eq 1 ']'
++ return 0
++ SLEEP_WAIT 3
++ wait_time=3
++ cmd=
++ mode=1
++ python3 /root/pros/github/test/mugen/libs/locallibs/sleep_wait.py --time 3 --cmd '' --mode 1
++ rmid -port 1111 -log portlog
+oe_test_openjdk11_rmid.sh: line 33: rmid: command not found
++ rmid -stop -port 1111
+oe_test_openjdk11_rmid.sh: line 35: rmid: command not found
++ CHECK_RESULT 127 0 0 'rmid -stop -port failed'
++ actual_result=127
++ expect_result=0
++ mode=0
++ error_log='rmid -stop -port failed'
++ exit_mode=0
++ '[' -z '127 0 0 rmid -stop -port failed' ']'
++ '[' 0 -eq 0 ']'
++ test 127x '!=' 0x
++ test -n 'rmid -stop -port failed'
++ LOG_ERROR 'rmid -stop -port failed'
++ message='rmid -stop -port failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'rmid -stop -port failed'
+Thu Apr 10 15:41:29 2025 - ERROR - rmid -stop -port failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_rmid.sh line 36'
++ message='oe_test_openjdk11_rmid.sh line 36'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_rmid.sh line 36'
+Thu Apr 10 15:41:32 2025 - ERROR - oe_test_openjdk11_rmid.sh line 36
++ '[' 0 -eq 1 ']'
++ return 0
++ find portlog
+find: 'portlog': No such file or directory
++ CHECK_RESULT 1 0 0 'not find portlog'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='not find portlog'
++ exit_mode=0
++ '[' -z '1 0 0 not find portlog' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'not find portlog'
++ LOG_ERROR 'not find portlog'
++ message='not find portlog'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'not find portlog'
+Thu Apr 10 15:41:34 2025 - ERROR - not find portlog
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_rmid.sh line 38'
++ message='oe_test_openjdk11_rmid.sh line 38'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_rmid.sh line 38'
+Thu Apr 10 15:41:37 2025 - ERROR - oe_test_openjdk11_rmid.sh line 38
++ '[' 0 -eq 1 ']'
++ return 0
++ LOG_INFO 'Finish test!'
++ message='Finish test!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish test!'
+Thu Apr 10 15:41:40 2025 - INFO  - Finish test!
++ CASE_RESULT 0
++ case_re=0
++ test -z 3
++ test 3 -gt 0
++ LOG_ERROR 'failed to execute the case.'
++ message='failed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'failed to execute the case.'
+Thu Apr 10 15:41:42 2025 - ERROR - failed to execute the case.
++ exit 3
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Thu Apr 10 15:41:45 2025 - INFO  - start environment cleanup.
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 15:41:47 2025 - WARN  - no thing to do.
++ return 0
++ rm -rf Hello.java portlog
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Thu Apr 10 15:41:50 2025 - INFO  - Finish environment cleanup!

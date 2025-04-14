@@ -1,0 +1,26 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 15:07:10 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL 'java-11-openjdk*'
++ pkgs='java-11-openjdk*'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'java-11-openjdk*' --node 1 --tempfile ''
+Thu Apr 10 15:36:58 2025 - ERROR - Timeout : Command 'bash -x oe_test_openjdk11_unpack200.sh' timed out after 1799.9992901990008 seconds

@@ -1,0 +1,414 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start environment preparation.'
++ message='Start environment preparation.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start environment preparation.'
+Thu Apr 10 17:27:02 2025 - INFO  - Start environment preparation.
++ DNF_INSTALL 'java-11-openjdk*'
++ pkgs='java-11-openjdk*'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'java-11-openjdk*' --node 1 --tempfile ''
+Thu Apr 10 17:28:12 2025 - INFO  - pkgs:(java-11-openjdk*) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ cp ../common/Hello1.java ../common/Hello.java .
++ LOG_INFO 'End of environmental preparation!'
++ message='End of environmental preparation!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End of environmental preparation!'
+Thu Apr 10 17:28:15 2025 - INFO  - End of environmental preparation!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start testing...'
++ message='Start testing...'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start testing...'
+Thu Apr 10 17:28:18 2025 - INFO  - Start testing...
++ javadoc -help
++ grep -i 用法:
++ CHECK_RESULT 1 0 0 'javadoc -help failed'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='javadoc -help failed'
++ exit_mode=0
++ '[' -z '1 0 0 javadoc -help failed' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'javadoc -help failed'
++ LOG_ERROR 'javadoc -help failed'
++ message='javadoc -help failed'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'javadoc -help failed'
+Thu Apr 10 17:28:48 2025 - ERROR - javadoc -help failed
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_openjdk11_javadoc.sh line 32'
++ message='oe_test_openjdk11_javadoc.sh line 32'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_openjdk11_javadoc.sh line 32'
+Thu Apr 10 17:28:50 2025 - ERROR - oe_test_openjdk11_javadoc.sh line 32
++ '[' 0 -eq 1 ']'
++ return 0
++ javadoc -public Hello1.java -d public
+Loading source file Hello1.java...
+Constructing Javadoc information...
+Creating destination directory: "public/"
+Building index for all the packages and classes...
+Standard Doclet version 17.0.14+7
+Building tree for all the packages and classes...
+Generating public/hello/Hello1.html...
+Hello1.java:2: warning: no comment
+public class Hello1 {
+       ^
+Hello1.java:3: warning: no comment
+    public static void main(String[] args) {
+                       ^
+Generating public/hello/package-summary.html...
+Generating public/hello/package-tree.html...
+Generating public/overview-tree.html...
+Building index for all classes...
+Generating public/allclasses-index.html...
+Generating public/allpackages-index.html...
+Generating public/index-all.html...
+Generating public/index.html...
+Generating public/help-doc.html...
+2 warnings
++ CHECK_RESULT 0 0 0 'javad -public failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='javad -public failed'
++ exit_mode=0
++ '[' -z '0 0 0 javad -public failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ find public
+public
+public/help-doc.html
+public/allpackages-index.html
+public/module-search-index.js
+public/member-search-index.js
+public/index.html
+public/jquery-ui.overrides.css
+public/package-search-index.js
+public/search.js
+public/index-all.html
+public/stylesheet.css
+public/tag-search-index.js
+public/element-list
+public/hello
+public/hello/package-summary.html
+public/hello/package-tree.html
+public/hello/Hello1.html
+public/script-dir
+public/script-dir/jquery-3.7.1.min.js
+public/script-dir/jquery-ui.min.js
+public/script-dir/jquery-ui.min.css
+public/overview-tree.html
+public/script.js
+public/allclasses-index.html
+public/resources
+public/resources/x.png
+public/resources/glass.png
+public/legal
+public/legal/jqueryUI.md
+public/legal/LICENSE
+public/legal/ASSEMBLY_EXCEPTION
+public/legal/jquery.md
+public/legal/ADDITIONAL_LICENSE_INFO
+public/type-search-index.js
++ CHECK_RESULT 0 0 0 'find  public failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='find  public failed'
++ exit_mode=0
++ '[' -z '0 0 0 find  public failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ javadoc -protected Hello1.java -d protected
+Loading source file Hello1.java...
+Constructing Javadoc information...
+Creating destination directory: "protected/"
+Building index for all the packages and classes...
+Standard Doclet version 17.0.14+7
+Building tree for all the packages and classes...
+Generating protected/hello/Hello1.html...
+Hello1.java:2: warning: no comment
+public class Hello1 {
+       ^
+Hello1.java:3: warning: no comment
+    public static void main(String[] args) {
+                       ^
+Generating protected/hello/package-summary.html...
+Generating protected/hello/package-tree.html...
+Generating protected/overview-tree.html...
+Building index for all classes...
+Generating protected/allclasses-index.html...
+Generating protected/allpackages-index.html...
+Generating protected/index-all.html...
+Generating protected/index.html...
+Generating protected/help-doc.html...
+2 warnings
++ CHECK_RESULT 0 0 0 'javadoc -protected failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='javadoc -protected failed'
++ exit_mode=0
++ '[' -z '0 0 0 javadoc -protected failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ find protected
+protected
+protected/help-doc.html
+protected/allpackages-index.html
+protected/module-search-index.js
+protected/member-search-index.js
+protected/index.html
+protected/jquery-ui.overrides.css
+protected/package-search-index.js
+protected/search.js
+protected/index-all.html
+protected/stylesheet.css
+protected/tag-search-index.js
+protected/element-list
+protected/hello
+protected/hello/package-summary.html
+protected/hello/package-tree.html
+protected/hello/Hello1.html
+protected/script-dir
+protected/script-dir/jquery-3.7.1.min.js
+protected/script-dir/jquery-ui.min.js
+protected/script-dir/jquery-ui.min.css
+protected/overview-tree.html
+protected/script.js
+protected/allclasses-index.html
+protected/resources
+protected/resources/x.png
+protected/resources/glass.png
+protected/legal
+protected/legal/jqueryUI.md
+protected/legal/LICENSE
+protected/legal/ASSEMBLY_EXCEPTION
+protected/legal/jquery.md
+protected/legal/ADDITIONAL_LICENSE_INFO
+protected/type-search-index.js
++ CHECK_RESULT 0 0 0 'find protected failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='find protected failed'
++ exit_mode=0
++ '[' -z '0 0 0 find protected failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ javadoc -private Hello1.java -d private
+Loading source file Hello1.java...
+Constructing Javadoc information...
+Creating destination directory: "private/"
+Building index for all the packages and classes...
+Standard Doclet version 17.0.14+7
+Building tree for all the packages and classes...
+Generating private/hello/Hello1.html...
+Hello1.java:2: warning: no comment
+public class Hello1 {
+       ^
+Hello1.java:3: warning: no comment
+    public static void main(String[] args) {
+                       ^
+Generating private/hello/package-summary.html...
+Generating private/hello/package-tree.html...
+Generating private/overview-tree.html...
+Building index for all classes...
+Generating private/allclasses-index.html...
+Generating private/allpackages-index.html...
+Generating private/index-all.html...
+Generating private/index.html...
+Generating private/help-doc.html...
+2 warnings
++ CHECK_RESULT 0 0 0 'javadoc -private'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='javadoc -private'
++ exit_mode=0
++ '[' -z '0 0 0 javadoc -private' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ find private
+private
+private/help-doc.html
+private/allpackages-index.html
+private/module-search-index.js
+private/member-search-index.js
+private/index.html
+private/jquery-ui.overrides.css
+private/package-search-index.js
+private/search.js
+private/index-all.html
+private/stylesheet.css
+private/tag-search-index.js
+private/element-list
+private/hello
+private/hello/package-summary.html
+private/hello/package-tree.html
+private/hello/Hello1.html
+private/script-dir
+private/script-dir/jquery-3.7.1.min.js
+private/script-dir/jquery-ui.min.js
+private/script-dir/jquery-ui.min.css
+private/overview-tree.html
+private/script.js
+private/allclasses-index.html
+private/resources
+private/resources/x.png
+private/resources/glass.png
+private/legal
+private/legal/jqueryUI.md
+private/legal/LICENSE
+private/legal/ASSEMBLY_EXCEPTION
+private/legal/jquery.md
+private/legal/ADDITIONAL_LICENSE_INFO
+private/type-search-index.js
++ CHECK_RESULT 0 0 0 'find private failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='find private failed'
++ exit_mode=0
++ '[' -z '0 0 0 find private failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ javadoc -package Hello1.java -d package
+Loading source file Hello1.java...
+Constructing Javadoc information...
+Creating destination directory: "package/"
+Building index for all the packages and classes...
+Standard Doclet version 17.0.14+7
+Building tree for all the packages and classes...
+Generating package/hello/Hello1.html...
+Hello1.java:2: warning: no comment
+public class Hello1 {
+       ^
+Hello1.java:3: warning: no comment
+    public static void main(String[] args) {
+                       ^
+Generating package/hello/package-summary.html...
+Generating package/hello/package-tree.html...
+Generating package/overview-tree.html...
+Building index for all classes...
+Generating package/allclasses-index.html...
+Generating package/allpackages-index.html...
+Generating package/index-all.html...
+Generating package/index.html...
+Generating package/help-doc.html...
+2 warnings
++ CHECK_RESULT 0 0 0 'javadoc -package failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='javadoc -package failed'
++ exit_mode=0
++ '[' -z '0 0 0 javadoc -package failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ find package
+package
+package/help-doc.html
+package/allpackages-index.html
+package/module-search-index.js
+package/member-search-index.js
+package/index.html
+package/jquery-ui.overrides.css
+package/package-search-index.js
+package/search.js
+package/index-all.html
+package/stylesheet.css
+package/tag-search-index.js
+package/element-list
+package/hello
+package/hello/package-summary.html
+package/hello/package-tree.html
+package/hello/Hello1.html
+package/script-dir
+package/script-dir/jquery-3.7.1.min.js
+package/script-dir/jquery-ui.min.js
+package/script-dir/jquery-ui.min.css
+package/overview-tree.html
+package/script.js
+package/allclasses-index.html
+package/resources
+package/resources/x.png
+package/resources/glass.png
+package/legal
+package/legal/jqueryUI.md
+package/legal/LICENSE
+package/legal/ASSEMBLY_EXCEPTION
+package/legal/jquery.md
+package/legal/ADDITIONAL_LICENSE_INFO
+package/type-search-index.js
++ CHECK_RESULT 0 0 0 'find package failed'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='find package failed'
++ exit_mode=0
++ '[' -z '0 0 0 find package failed' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ LOG_INFO 'Finish test!'
++ message='Finish test!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish test!'
+Thu Apr 10 17:34:51 2025 - INFO  - Finish test!
++ CASE_RESULT 0
++ case_re=0
++ test -z 1
++ test 1 -gt 0
++ LOG_ERROR 'failed to execute the case.'
++ message='failed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'failed to execute the case.'
+Thu Apr 10 17:34:54 2025 - ERROR - failed to execute the case.
++ exit 1
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Thu Apr 10 17:34:57 2025 - INFO  - start environment cleanup.
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 17:34:59 2025 - WARN  - no thing to do.
++ return 0
++ rm -rf Hello1.java Hello.java public protected private package
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Thu Apr 10 17:35:02 2025 - INFO  - Finish environment cleanup!

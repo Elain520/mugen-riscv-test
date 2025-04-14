@@ -1,0 +1,524 @@
++ source /root/pros/github/test/mugen/libs/locallibs/common_lib.sh
+++ python3 --version
+Python 3.11.11
+++ source /root/pros/github/test/mugen/libs/locallibs/common_lib_python.sh
++ main
+++ type -t post_test
++ '[' -n function ']'
++ trap post_test EXIT INT HUP TERM
++ rpm -qa
++ grep expect
+++ type -t config_params
++ '[' -n '' ']'
+++ type -t pre_test
++ '[' -n function ']'
++ pre_test
++ LOG_INFO 'Start to prepare the test environment!'
++ message='Start to prepare the test environment!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to prepare the test environment!'
+Thu Apr 10 18:04:13 2025 - INFO  - Start to prepare the test environment!
++ OLD_LANG=en_US.UTF-8
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ dnf list
++ grep java-17-openjdk
+java-17-openjdk.riscv64                                 1:17.0.14.7-2.oe2503                              @OS  
+java-17-openjdk-devel.riscv64                           1:17.0.14.7-2.oe2503                              @OS  
+java-17-openjdk-headless.riscv64                        1:17.0.14.7-2.oe2503                              @OS  
+java-17-openjdk-debuginfo.riscv64                       1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-debugsource.riscv64                     1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-demo.riscv64                            1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-demo-slowdebug.riscv64                  1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-devel-slowdebug.riscv64                 1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-headless-slowdebug.riscv64              1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-javadoc.riscv64                         1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-javadoc-zip.riscv64                     1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-jmods.riscv64                           1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-jmods-slowdebug.riscv64                 1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-slowdebug.riscv64                       1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-src.riscv64                             1:17.0.14.7-2.oe2503                              OS   
+java-17-openjdk-src-slowdebug.riscv64                   1:17.0.14.7-2.oe2503                              OS   
++ DNF_INSTALL 'java-17-openjdk java-17-openjdk-devel java-17-openjdk-headless'
++ pkgs='java-17-openjdk java-17-openjdk-devel java-17-openjdk-headless'
++ node=1
++ '[' -z '' ']'
++ tmpfile=
+++ python3 /root/pros/github/test/mugen/libs/locallibs/rpm_manage.py install --pkgs 'java-17-openjdk java-17-openjdk-devel java-17-openjdk-headless' --node 1 --tempfile ''
+Thu Apr 10 18:07:45 2025 - INFO  - pkgs:(java-17-openjdk java-17-openjdk-devel java-17-openjdk-headless) is already installed
++ tmpfile2=
++ '[' -z '' ']'
++ tmpfile=
++ LOG_INFO 'End to prepare the test environment!'
++ message='End to prepare the test environment!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to prepare the test environment!'
+Thu Apr 10 18:07:48 2025 - INFO  - End to prepare the test environment!
+++ type -t run_test
++ '[' -n function ']'
++ run_test
++ LOG_INFO 'Start to run test.'
++ message='Start to run test.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Start to run test.'
+Thu Apr 10 18:07:51 2025 - INFO  - Start to run test.
++ keytool --help
++ grep 'Usage:\|keytool'
+Use "keytool -?, -h, or --help" for this help message
+Use "keytool -command_name --help" for usage of command_name.
++ CHECK_RESULT 0 0 0 'Failed to check option : --help'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Failed to check option : --help'
++ exit_mode=0
++ '[' -z '0 0 0 Failed to check option : --help' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ keytool -h
++ grep 'Usage:\|keytool'
+Use "keytool -?, -h, or --help" for this help message
+Use "keytool -command_name --help" for usage of command_name.
++ CHECK_RESULT 0 0 0 'Failed to check option : -h'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Failed to check option : -h'
++ exit_mode=0
++ '[' -z '0 0 0 Failed to check option : -h' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ keytool '-?'
++ grep 'Usage:\|keytool'
+Use "keytool -?, -h, or --help" for this help message
+Use "keytool -command_name --help" for usage of command_name.
++ CHECK_RESULT 0 0 0 'Failed to check option : -?'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Failed to check option : -?'
++ exit_mode=0
++ '[' -z '0 0 0 Failed to check option : -?' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ expect
+spawn keytool -genkeypair -alias mykey -keyalg RSA -keysize 2048 -keystore mykeystore.jks
+Enter keystore password:  
+Keystore password is too short - must be at least 6 characters
+Enter keystore password:  
+Keystore password is too short - must be at least 6 characters
+Enter keystore password:  
+Keystore password is too short - must be at least 6 characters
+Too many failures - try later
+expect: spawn id exp5 not open
+    while executing
+"expect ":*" {send "Shaanxi\r"}"
++ test -s mykeystore.jks
++ CHECK_RESULT 1 0 0 'Failed to create mykeystore.jks keystore file.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to create mykeystore.jks keystore file.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to create mykeystore.jks keystore file.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to create mykeystore.jks keystore file.'
++ LOG_ERROR 'Failed to create mykeystore.jks keystore file.'
++ message='Failed to create mykeystore.jks keystore file.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to create mykeystore.jks keystore file.'
+Thu Apr 10 18:08:57 2025 - ERROR - Failed to create mykeystore.jks keystore file.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 62'
++ message='oe_test_keytool.sh line 62'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 62'
+Thu Apr 10 18:08:59 2025 - ERROR - oe_test_keytool.sh line 62
++ '[' 0 -eq 1 ']'
++ return 0
++ expect
+spawn keytool -genkeypair -alias myalias -keyalg RSA -keystore mykeystore2.jks -storepass mypassword -validity 365
+What is your first and last name?
+  [Unknown]:  da
+What is the name of your organizational unit?
+  [Unknown]:  zhang
+What is the name of your organization?
+  [Unknown]:  chengdu
+What is the name of your City or Locality?
+  [Unknown]:  sichuang
+What is the name of your State or Province?
+  [Unknown]:  567890
+What is the two-letter country code for this unit?
+  [Unknown]:  yes
+Is CN=da, OU=zhang, O=chengdu, L=sichuang, ST=567890, C=yes correct?
+  [no]:  + test -s mykeystore2.jks
++ CHECK_RESULT 1 0 0 'Failed to create mykeystore2.jks keystore file.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to create mykeystore2.jks keystore file.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to create mykeystore2.jks keystore file.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to create mykeystore2.jks keystore file.'
++ LOG_ERROR 'Failed to create mykeystore2.jks keystore file.'
++ message='Failed to create mykeystore2.jks keystore file.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to create mykeystore2.jks keystore file.'
+Thu Apr 10 18:09:29 2025 - ERROR - Failed to create mykeystore2.jks keystore file.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 77'
++ message='oe_test_keytool.sh line 77'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 77'
+Thu Apr 10 18:09:32 2025 - ERROR - oe_test_keytool.sh line 77
++ '[' 0 -eq 1 ']'
++ return 0
++ expect
+spawn keytool -list -keystore mykeystore.jks
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ grep -E 'Your keystore contains 1 entry|mykey.*PrivateKeyEntry' checklog
++ CHECK_RESULT 1 0 0 'Failed to view the contents of the mykeystore.jks keystore.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to view the contents of the mykeystore.jks keystore.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to view the contents of the mykeystore.jks keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to view the contents of the mykeystore.jks keystore.'
++ LOG_ERROR 'Failed to view the contents of the mykeystore.jks keystore.'
++ message='Failed to view the contents of the mykeystore.jks keystore.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to view the contents of the mykeystore.jks keystore.'
+Thu Apr 10 18:09:51 2025 - ERROR - Failed to view the contents of the mykeystore.jks keystore.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 88'
++ message='oe_test_keytool.sh line 88'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 88'
+Thu Apr 10 18:09:53 2025 - ERROR - oe_test_keytool.sh line 88
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -list -keystore mykeystore2.jks -storepass mypassword
++ grep -E 'Your keystore contains 1 entry|myalias.*PrivateKeyEntry'
++ CHECK_RESULT 1 0 0 'Failed to view the contents of the mykeystore2.jks keystore.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to view the contents of the mykeystore2.jks keystore.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to view the contents of the mykeystore2.jks keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to view the contents of the mykeystore2.jks keystore.'
++ LOG_ERROR 'Failed to view the contents of the mykeystore2.jks keystore.'
++ message='Failed to view the contents of the mykeystore2.jks keystore.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to view the contents of the mykeystore2.jks keystore.'
+Thu Apr 10 18:10:10 2025 - ERROR - Failed to view the contents of the mykeystore2.jks keystore.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 91'
++ message='oe_test_keytool.sh line 91'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 91'
+Thu Apr 10 18:10:12 2025 - ERROR - oe_test_keytool.sh line 91
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -exportcert -alias mykey -keystore mykeystore.jks -file mycert.cer -storepass 123@Come
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ CHECK_RESULT 1 0 0 'Failed to export cert from keystore.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to export cert from keystore.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to export cert from keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to export cert from keystore.'
++ LOG_ERROR 'Failed to export cert from keystore.'
++ message='Failed to export cert from keystore.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to export cert from keystore.'
+Thu Apr 10 18:10:29 2025 - ERROR - Failed to export cert from keystore.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 95'
++ message='oe_test_keytool.sh line 95'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 95'
+Thu Apr 10 18:10:32 2025 - ERROR - oe_test_keytool.sh line 95
++ '[' 0 -eq 1 ']'
++ return 0
++ test -s mycert.cer
++ CHECK_RESULT 1 0 0 'Failed to create mycert.cer file.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to create mycert.cer file.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to create mycert.cer file.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to create mycert.cer file.'
++ LOG_ERROR 'Failed to create mycert.cer file.'
++ message='Failed to create mycert.cer file.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to create mycert.cer file.'
+Thu Apr 10 18:10:35 2025 - ERROR - Failed to create mycert.cer file.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 97'
++ message='oe_test_keytool.sh line 97'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 97'
+Thu Apr 10 18:10:37 2025 - ERROR - oe_test_keytool.sh line 97
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -delete -alias mykey -keystore mykeystore.jks -storepass 123@Come
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ CHECK_RESULT 1 0 0 'Failed to delete keystore file.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to delete keystore file.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to delete keystore file.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to delete keystore file.'
++ LOG_ERROR 'Failed to delete keystore file.'
++ message='Failed to delete keystore file.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to delete keystore file.'
+Thu Apr 10 18:10:53 2025 - ERROR - Failed to delete keystore file.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 101'
++ message='oe_test_keytool.sh line 101'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 101'
+Thu Apr 10 18:10:56 2025 - ERROR - oe_test_keytool.sh line 101
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -list -keystore mykeystore.jks -storepass 123@Come
++ grep 'Your keystore contains 0 entries'
++ CHECK_RESULT 1 0 0 'Failed to verify that the keystore contents are empty.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to verify that the keystore contents are empty.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to verify that the keystore contents are empty.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to verify that the keystore contents are empty.'
++ LOG_ERROR 'Failed to verify that the keystore contents are empty.'
++ message='Failed to verify that the keystore contents are empty.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to verify that the keystore contents are empty.'
+Thu Apr 10 18:11:12 2025 - ERROR - Failed to verify that the keystore contents are empty.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 104'
++ message='oe_test_keytool.sh line 104'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 104'
+Thu Apr 10 18:11:15 2025 - ERROR - oe_test_keytool.sh line 104
++ '[' 0 -eq 1 ']'
++ return 0
++ echo yes
++ keytool -importcert -alias mykey -file mycert.cer -keystore mykeystore.jks -storepass 123@Come
++ grep 'Certificate was added to keystore'
++ CHECK_RESULT 1 0 0 'Certificate import failed.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Certificate import failed.'
++ exit_mode=0
++ '[' -z '1 0 0 Certificate import failed.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Certificate import failed.'
++ LOG_ERROR 'Certificate import failed.'
++ message='Certificate import failed.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Certificate import failed.'
+Thu Apr 10 18:11:33 2025 - ERROR - Certificate import failed.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 108'
++ message='oe_test_keytool.sh line 108'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 108'
+Thu Apr 10 18:11:36 2025 - ERROR - oe_test_keytool.sh line 108
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -list -keystore mykeystore.jks -storepass 123@Come
++ grep -E 'Your keystore contains 1 entry|mykey|trustedCertEntry'
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ CHECK_RESULT 0 0 0 'Failed to import cert into keystore.'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Failed to import cert into keystore.'
++ exit_mode=0
++ '[' -z '0 0 0 Failed to import cert into keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ keytool -printcert -file mycert.cer
++ grep -E 'Certificate fingerprints|Signature algorithm name|Serial number|Valid from|KeyIdentifier|[0-9][A-Z]'
++ CHECK_RESULT 1 0 0 'Failed to print cert content.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to print cert content.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to print cert content.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to print cert content.'
++ LOG_ERROR 'Failed to print cert content.'
++ message='Failed to print cert content.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to print cert content.'
+Thu Apr 10 18:12:06 2025 - ERROR - Failed to print cert content.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 115'
++ message='oe_test_keytool.sh line 115'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 115'
+Thu Apr 10 18:12:09 2025 - ERROR - oe_test_keytool.sh line 115
++ '[' 0 -eq 1 ']'
++ return 0
++ expect
+spawn keytool -storepasswd -keystore mykeystore.jks
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
+expect: spawn id exp4 not open
+    while executing
+"expect "Re-enter new keystore password:*" {send "mypassword\r"}"
++ keytool -list -keystore mykeystore.jks -storepass mypassword
++ grep mykey
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ CHECK_RESULT 0 0 0 'Failed to modify the keystore password.'
++ actual_result=0
++ expect_result=0
++ mode=0
++ error_log='Failed to modify the keystore password.'
++ exit_mode=0
++ '[' -z '0 0 0 Failed to modify the keystore password.' ']'
++ '[' 0 -eq 0 ']'
++ test 0x '!=' 0x
++ return 0
++ keytool -changealias -keystore mykeystore2.jks -alias myalias -destalias mynewalias -storepass mypassword
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore2.jks
++ CHECK_RESULT 1 0 0 'Changing the alias of an entry in the keystore failed.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Changing the alias of an entry in the keystore failed.'
++ exit_mode=0
++ '[' -z '1 0 0 Changing the alias of an entry in the keystore failed.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Changing the alias of an entry in the keystore failed.'
++ LOG_ERROR 'Changing the alias of an entry in the keystore failed.'
++ message='Changing the alias of an entry in the keystore failed.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Changing the alias of an entry in the keystore failed.'
+Thu Apr 10 18:12:54 2025 - ERROR - Changing the alias of an entry in the keystore failed.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 131'
++ message='oe_test_keytool.sh line 131'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 131'
+Thu Apr 10 18:12:57 2025 - ERROR - oe_test_keytool.sh line 131
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -list -keystore mykeystore2.jks -storepass mypassword
++ grep mynewalias
++ CHECK_RESULT 1 0 0 'Failed to change alias.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to change alias.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to change alias.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to change alias.'
++ LOG_ERROR 'Failed to change alias.'
++ message='Failed to change alias.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to change alias.'
+Thu Apr 10 18:13:12 2025 - ERROR - Failed to change alias.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 134'
++ message='oe_test_keytool.sh line 134'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 134'
+Thu Apr 10 18:13:16 2025 - ERROR - oe_test_keytool.sh line 134
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -delete -alias mynewalias -keystore mykeystore2.jks -storepass mypassword
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore2.jks
++ keytool -delete -alias mykey -keystore mykeystore.jks -storepass mypassword
+keytool error: java.lang.Exception: Keystore file does not exist: mykeystore.jks
++ keytool -list -keystore mykeystore2.jks -storepass mypassword
++ grep 'Your keystore contains 0 entries'
++ CHECK_RESULT 1 0 0 'Failed to delete an entry in the mykeystore2.jks keystore.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to delete an entry in the mykeystore2.jks keystore.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to delete an entry in the mykeystore2.jks keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to delete an entry in the mykeystore2.jks keystore.'
++ LOG_ERROR 'Failed to delete an entry in the mykeystore2.jks keystore.'
++ message='Failed to delete an entry in the mykeystore2.jks keystore.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to delete an entry in the mykeystore2.jks keystore.'
+Thu Apr 10 18:14:05 2025 - ERROR - Failed to delete an entry in the mykeystore2.jks keystore.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 141'
++ message='oe_test_keytool.sh line 141'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 141'
+Thu Apr 10 18:14:08 2025 - ERROR - oe_test_keytool.sh line 141
++ '[' 0 -eq 1 ']'
++ return 0
++ keytool -list -keystore mykeystore.jks -storepass mypassword
++ grep 'Your keystore contains 0 entries'
++ CHECK_RESULT 1 0 0 'Failed to delete an entry in the mykeystore.jks keystore.'
++ actual_result=1
++ expect_result=0
++ mode=0
++ error_log='Failed to delete an entry in the mykeystore.jks keystore.'
++ exit_mode=0
++ '[' -z '1 0 0 Failed to delete an entry in the mykeystore.jks keystore.' ']'
++ '[' 0 -eq 0 ']'
++ test 1x '!=' 0x
++ test -n 'Failed to delete an entry in the mykeystore.jks keystore.'
++ LOG_ERROR 'Failed to delete an entry in the mykeystore.jks keystore.'
++ message='Failed to delete an entry in the mykeystore.jks keystore.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'Failed to delete an entry in the mykeystore.jks keystore.'
+Thu Apr 10 18:14:26 2025 - ERROR - Failed to delete an entry in the mykeystore.jks keystore.
++ (( exec_result++ ))
++ LOG_ERROR 'oe_test_keytool.sh line 143'
++ message='oe_test_keytool.sh line 143'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'oe_test_keytool.sh line 143'
+Thu Apr 10 18:14:28 2025 - ERROR - oe_test_keytool.sh line 143
++ '[' 0 -eq 1 ']'
++ return 0
++ LOG_INFO 'End to run test.'
++ message='End to run test.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'End to run test.'
+Thu Apr 10 18:14:31 2025 - INFO  - End to run test.
++ CASE_RESULT 0
++ case_re=0
++ test -z 14
++ test 14 -gt 0
++ LOG_ERROR 'failed to execute the case.'
++ message='failed to execute the case.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level error --message 'failed to execute the case.'
+Thu Apr 10 18:14:34 2025 - ERROR - failed to execute the case.
++ exit 14
++ post_test
++ LOG_INFO 'start environment cleanup.'
++ message='start environment cleanup.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'start environment cleanup.'
+Thu Apr 10 18:14:36 2025 - INFO  - start environment cleanup.
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ DNF_REMOVE
++ node=1
++ pkg_list=
++ mode=0
++ [[ -z '' ]]
++ [[ -z '' ]]
++ LOG_WARN 'no thing to do.'
++ message='no thing to do.'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level warn --message 'no thing to do.'
+Thu Apr 10 18:14:39 2025 - WARN  - no thing to do.
++ return 0
++ rm -rf log1 log2 checklog mycert.cer mykeystore.jks mykeystore2.jks
++ LOG_INFO 'Finish environment cleanup!'
++ message='Finish environment cleanup!'
++ python3 /root/pros/github/test/mugen/libs/locallibs/mugen_log.py --level info --message 'Finish environment cleanup!'
+Thu Apr 10 18:14:42 2025 - INFO  - Finish environment cleanup!
