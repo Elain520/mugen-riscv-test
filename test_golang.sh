@@ -5,7 +5,8 @@ trace-cmd start -p function  # 开始跟踪
 # bash mugen.sh -f python3 -x
 # bash mugen.sh -f openblas -x
 # bash mugen.sh -f protobuf -x
-bash mugen.sh -f memcached -x
+# bash mugen.sh -f memcached -x
+bash mugen.sh -f smoke-basic-os -r oe_test_g++ -x
 
 echo "Stop tracing"
 trace-cmd stop  # 停止跟踪
