@@ -8,7 +8,10 @@ trace-cmd start -p function  # 开始跟踪
 # bash mugen.sh -f memcached -x
 # bash mugen.sh -f smoke-basic-os -r oe_test_g++ -x
 # bash mugen.sh -f os-basic -r oe_test_c++ -x
-bash mugen.sh -f os-basic -r oe_test_c++_stl -x
+# bash mugen.sh -f os-basic -r oe_test_c++_stl -x
+cd /root/kernel_source/riscv-linux
+make ARCH=riscv -j$(nproc)
+cd /root/pros/github/test/mugen
 
 echo "Stop tracing"
 trace-cmd stop  # 停止跟踪
